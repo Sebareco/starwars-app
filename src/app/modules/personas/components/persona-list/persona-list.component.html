@@ -1,0 +1,16 @@
+<div class="personas-container">
+  <input type="text" [(ngModel)]="search" (input)="cargarPersonas()" placeholder="Buscar persona..." class="search-input" />
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <ul class="personas-list">
+    <li *ngFor="let persona of personas" (click)="verDetalle(persona.url)" class="persona-item">
+      <img
+        [src]="getPersonImage(persona.url)"
+        (error)="setDefaultImage($event)"
+        width="64"
+        height="64"
+        class="avatar"
+      >
+      <span>{{ persona.name }}</span>
+    </li>
+  </ul>
+</div>

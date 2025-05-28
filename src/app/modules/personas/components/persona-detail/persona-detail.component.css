@@ -1,0 +1,25 @@
+.detail-card {
+  max-width: 400px;
+  margin: 2.5rem auto;
+  background: #202026;
+  padding: 2rem;
+  border-radius: 18px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 16px #0006;
+}
+.avatar-lg {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  margin-bottom: 1rem;
+  background: #111;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0 0;
+}
+li {
+  margin-bottom: 0.7rem;
+}

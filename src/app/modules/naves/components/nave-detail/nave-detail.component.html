@@ -1,0 +1,17 @@
+<div *ngIf="nave; else error">
+  <div class="detail-card">
+    <img [src]="getNaveImage()" (error)="setDefaultImage($event)" width="180" height="180" class="avatar-lg">
+    <h2>{{ nave.name }}</h2>
+    <ul>
+      <li><strong>Modelo:</strong> {{ nave.model }}</li>
+      <li><strong>Fabricante:</strong> {{ nave.manufacturer }}</li>
+      <li><strong>Costo en créditos:</strong> {{ nave.cost_in_credits }}</li>
+      <li><strong>Longitud:</strong> {{ nave.length }}</li>
+      <li><strong>Capacidad de pasajeros:</strong> {{ nave.passengers }}</li>
+      <li><strong>Clase de nave:</strong> {{ nave.starship_class }}</li>
+    </ul>
+  </div>
+</div>
+<ng-template #error>
+  <div class="error">No se pudo cargar la nave.</div>
+</ng-template>

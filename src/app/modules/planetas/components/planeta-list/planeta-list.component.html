@@ -1,0 +1,10 @@
+<div class="planetas-container">
+  <input type="text" [(ngModel)]="search" (input)="cargarPlanetas()" placeholder="Buscar planeta..." class="search-input" />
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <ul class="planetas-list">
+    <li *ngFor="let planeta of planetas" (click)="verDetalle(planeta.url)" class="planeta-item">
+      <img [src]="getPlanetImage(planeta.url)" (error)="setDefaultImage($event)" width="64" height="64" class="avatar">
+      <span>{{ planeta.name }}</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="persona; else error">
+  <div class="detail-card">
+    <img [src]="getPersonImage()" (error)="setDefaultImage($event)" width="180" height="180" class="avatar-lg">
+    <h2>{{ persona.name }}</h2>
+    <ul>
+      <li><strong>Altura:</strong> {{ persona.height }} cm</li>
+      <li><strong>Peso:</strong> {{ persona.mass }} kg</li>
+      <li><strong>Color de pelo:</strong> {{ persona.hair_color }}</li>
+      <li><strong>Color de piel:</strong> {{ persona.skin_color }}</li>
+      <li><strong>Color de ojos:</strong> {{ persona.eye_color }}</li>
+      <li><strong>Año de nacimiento:</strong> {{ persona.birth_year }}</li>
+      <li><strong>Género:</strong> {{ persona.gender }}</li>
+    </ul>
+  </div>
+</div>
+<ng-template #error>
+  <div class="error">No se pudo cargar la persona.</div>
+</ng-template>

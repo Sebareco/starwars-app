@@ -1,0 +1,10 @@
+<div class="naves-container">
+  <input type="text" [(ngModel)]="search" (input)="cargarNaves()" placeholder="Buscar nave..." class="search-input" />
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <ul class="naves-list">
+    <li *ngFor="let nave of naves" (click)="verDetalle(nave.url)" class="nave-item">
+      <img [src]="getNaveImage(nave.url)" (error)="setDefaultImage($event)" width="64" height="64" class="avatar">
+      <span>{{ nave.name }}</span>
+    </li>
+  </ul>
+</div>

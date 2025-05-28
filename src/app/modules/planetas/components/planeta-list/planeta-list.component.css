@@ -1,0 +1,44 @@
+.planetas-container {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+.search-input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 7px;
+  border: 1px solid #c0c0c0;
+}
+.planetas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.planeta-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+  background: #223;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px #0002;
+}
+.planeta-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px #0004;
+}
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background: #111;
+}
+.error {
+  color: #f33;
+  margin-bottom: 1rem;
+}
