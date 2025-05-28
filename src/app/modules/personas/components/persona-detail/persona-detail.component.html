@@ -10,9 +10,12 @@
       <li><strong>Color de ojos:</strong> {{ persona.eye_color }}</li>
       <li><strong>Año de nacimiento:</strong> {{ persona.birth_year }}</li>
       <li><strong>Género:</strong> {{ persona.gender }}</li>
+      <div style="margin-bottom: 1rem;">
+        <button (click)="volverAtras()" style="width: 75%;">⬅ Volver</button>
+      </div>
     </ul>
   </div>
 </div>
 <ng-template #error>
-  <div class="error">No se pudo cargar la persona.</div>
+  <div class="error"></div>
 </ng-template>

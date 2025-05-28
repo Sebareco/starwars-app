@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlanetaService } from '../../../../modules/planetas/services/planeta.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planeta-detail',
@@ -16,7 +17,8 @@ export class PlanetaDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private planetaService: PlanetaService
+    private planetaService: PlanetaService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,6 +26,10 @@ export class PlanetaDetailComponent implements OnInit {
       this.id = params['id'];
       this.cargarPlaneta();
     });
+  }
+
+  volverAtras(): void {
+    this.router.navigate(['/planetas'])
   }
 
   cargarPlaneta() {
@@ -38,10 +44,10 @@ export class PlanetaDetailComponent implements OnInit {
   }
 
   getPlanetImage(): string {
-    return `https://starwars-visualguide.com/assets/img/planets/${this.id}.jpg`;
+    return ``;
   }
 
   setDefaultImage(event: any) {
-    event.target.src = 'assets/img/planet-placeholder.png';
+    event.target.src = 'assets/img/no-image.jpg';
   }
 }

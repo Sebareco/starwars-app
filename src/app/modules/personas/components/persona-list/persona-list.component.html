@@ -1,4 +1,7 @@
 <div class="personas-container">
+  <div style="margin-bottom: 1rem;">
+    <button (click)="volverHome()">⬅ Volver</button>
+  </div>
   <input type="text" [(ngModel)]="search" (input)="cargarPersonas()" placeholder="Buscar persona..." class="search-input" />
   <div *ngIf="error" class="error">{{ error }}</div>
   <ul class="personas-list">

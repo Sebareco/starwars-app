@@ -3,6 +3,7 @@ import { PersonaService } from '../../../../modules/personas/services/persona.se
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-persona-list',
@@ -17,10 +18,13 @@ export class PersonaListComponent implements OnInit {
   loading = false;
   error = '';
 
-  constructor(private personaService: PersonaService, private router: Router) {}
+  constructor(private personaService: PersonaService, private router: Router, private location: Location) {}
 
   ngOnInit() {
     this.cargarPersonas();
+  }
+  volverHome() {
+    this.router.navigate(['/home'])
   }
 
   cargarPersonas() {
@@ -47,10 +51,10 @@ export class PersonaListComponent implements OnInit {
 
   getPersonImage(url: string): string {
     const id = this.getIdFromUrl(url);
-    return `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+    return '';
   }
 
   setDefaultImage(event: any) {
-    event.target.src = 'assets/img/user-placeholder.png'; // asegurate de tener esta imagen
+    event.target.src = 'assets/img/no-image.jpg';
   }
 }

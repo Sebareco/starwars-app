@@ -8,9 +8,12 @@
       <li><strong>Población:</strong> {{ planeta.population }}</li>
       <li><strong>Terreno:</strong> {{ planeta.terrain }}</li>
       <li><strong>Diámetro:</strong> {{ planeta.diameter }}</li>
+      <div style="margin-bottom: 1rem;">
+        <button (click)="volverAtras()" style="width: 75%;">⬅ Volver</button>
+      </div>
     </ul>
   </div>
 </div>
 <ng-template #error>
-  <div class="error">No se pudo cargar el planeta.</div>
+  <div class="error"></div>
 </ng-template>

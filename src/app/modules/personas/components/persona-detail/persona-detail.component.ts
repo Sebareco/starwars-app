@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PersonaService } from '../../../../modules/personas/services/persona.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-persona-detail',
@@ -16,7 +17,8 @@ export class PersonaDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private personaService: PersonaService
+    private personaService: PersonaService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,6 +26,9 @@ export class PersonaDetailComponent implements OnInit {
       this.id = params['id'];
       this.cargarPersona();
     });
+  }
+  volverAtras(): void {
+    this.router.navigate(['/personas'])
   }
 
   cargarPersona() {
@@ -38,9 +43,9 @@ export class PersonaDetailComponent implements OnInit {
   }
 
   getPersonImage(): string {
-    return `https://starwars-visualguide.com/assets/img/characters/${this.id}.jpg`;
+    return ``;
   }
   setDefaultImage(event: any) {
-    event.target.src = 'assets/img/user-placeholder.png';
+    event.target.src = 'assets/img/no-image.jpg';
   }
 }

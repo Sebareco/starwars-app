@@ -22,6 +22,10 @@ export class NaveListComponent implements OnInit {
     this.cargarNaves();
   }
 
+  volverHome() {
+    this.router.navigate(['/home'])
+  }
+
   cargarNaves() {
     this.naveService.getNaves(this.search).subscribe({
       next: (data) => {
@@ -46,10 +50,10 @@ export class NaveListComponent implements OnInit {
 
   getNaveImage(url: string): string {
     const id = this.getIdFromUrl(url);
-    return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`;
+    return ``;
   }
 
   setDefaultImage(event: any) {
-    event.target.src = 'assets/img/starship-placeholder.png';
+    event.target.src = 'assets/img/no-image.jpg';
   }
 }

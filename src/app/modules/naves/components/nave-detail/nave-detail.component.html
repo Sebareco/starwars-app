@@ -9,9 +9,12 @@
       <li><strong>Longitud:</strong> {{ nave.length }}</li>
       <li><strong>Capacidad de pasajeros:</strong> {{ nave.passengers }}</li>
       <li><strong>Clase de nave:</strong> {{ nave.starship_class }}</li>
+      <div style="margin-bottom: 1rem;">
+        <button (click)="volverAtras()" style="width: 75%;">⬅ Volver</button>
+      </div>
     </ul>
   </div>
 </div>
 <ng-template #error>
-  <div class="error">No se pudo cargar la nave.</div>
+  <div class="error"></div>
 </ng-template>

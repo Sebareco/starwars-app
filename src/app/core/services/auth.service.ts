@@ -1,39 +1,46 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  // ... el resto de tus variables
+  private tokenKey = environment.authToken;
+  private isBrowser: boolean;
+
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {this.isBrowser = isPlatformBrowser(this.platformId);}
+
+  login(username: string, password: string): Observable<any> {
+    if (environment.useMockLogin) {
+      if (username === 'admin' && password === '1234') {
+        return of({ access_token: 'mock-token' });
+      } else {
+        return throwError(() => ({ error: { message: 'Credenciales inválidas' } }));
+      }
+    } else {
+      return this.http.post(environment.helipagos.login, { username, password });
+    }
+  }
 
   setToken(token: string) {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.setItem('access_token', token);
+    if (this.isBrowser) {
+      sessionStorage.setItem('access_token', token);
     }
   }
 
   getToken(): string | null {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('access_token');
-    }
-    return null;
+    return this.isBrowser ? sessionStorage.getItem('access_token') : null;
   }
 
   logout() {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      localStorage.removeItem('access_token');
+    if (this.isBrowser) {
+      sessionStorage.removeItem('access_token');
     }
   }
 
   isLoggedIn(): boolean {
     return !!this.getToken();
   }
-  login(username: string, password: string): Observable<any> {
-    // Esto es ejemplo, puede ser con fetch, http, o un mock
-    return this.http.post<any>('url_a_la_api', { username, password });
-  }
-
-  constructor(private http: HttpClient) {}
 }
-

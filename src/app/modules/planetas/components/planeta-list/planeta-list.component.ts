@@ -22,6 +22,10 @@ export class PlanetaListComponent implements OnInit {
     this.cargarPlanetas();
   }
 
+  volverHome(){
+    this.router.navigate(['/home'])
+  }
+
   cargarPlanetas() {
     this.planetaService.getPlanetas(this.search).subscribe({
       next: (data) => {
@@ -46,11 +50,11 @@ export class PlanetaListComponent implements OnInit {
 
   getPlanetImage(url: string): string {
     const id = this.getIdFromUrl(url);
-    return `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`;
+    return ``;
   }
 
   setDefaultImage(event: any) {
-    event.target.src = 'assets/img/planet-placeholder.png';
+    event.target.src = 'assets/img/no-image.jpg';
   }
 }
 
