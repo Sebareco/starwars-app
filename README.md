@@ -1,59 +1,68 @@
-# StarwarsApp
+# StarWars App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+Aplicación desarrollada en Angular 19 que consume la API pública de Star Wars (SWAPI) para explorar personajes, planetas y naves. El proyecto fue realizado como parte de una prueba técnica para Helipagos.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Login simulado (mock) con almacenamiento de token en localStorage.
+- Lista y detalles de personajes.
+- Lista y detalles de planetas.
+- Lista y detalles de naves espaciales.
+- Búsqueda en tiempo real.
+- Navegación SPA con rutas protegidas.
+- Estilo visual moderno y responsivo.
 
-```bash
-ng serve
-```
+## Requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js v18+
+- Angular CLI v19
+- NPM
 
-## Code scaffolding
+## Instalación y ejecución local
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Cloná el repositorio:
 
-```bash
-ng generate component component-name
-```
+   git clone https://github.com/Sebareco/starwars-app.git
+   cd starwars-app
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Instalá dependencias:
 
-```bash
-ng generate --help
-```
+   npm install
 
-## Building
+3. Ejecutá el servidor de desarrollo:
 
-To build the project run:
+   npm start
 
-```bash
-ng build
-```
+Esto abrirá la app en http://localhost:4200.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Usa el mock login para ingresar (el backend de login está simulado si useMockLogin está activado en el environment.ts).
 
-## Running unit tests
+## Configuración
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+En src/environments/environment.ts podés modificar:
 
-```bash
-ng test
-```
+  useMockLogin: true or false
 
-## Running end-to-end tests
+## Buenas prácticas aplicadas
 
-For end-to-end (e2e) testing, run:
+- Uso de standalone components.
+- Separación por módulos: personas, planetas, naves.
+- Inyección de servicios para la lógica de negocio.
+- Interceptor de Auth para añadir token al request.
+- Variables centralizadas en environment.ts.
+- Uso de proxy para desarrollo local (proxy.conf.json).
+- Componentes reutilizables.
+- Gitflow aplicado (opcional).
 
-```bash
-ng e2e
-```
+## Cómo testear
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Para simular login:
 
-## Additional Resources
+1. Ingresá cualquier usuario/contraseña en el login.
+2. Se almacenará un token simulado en localStorage.
+3. Podrás navegar por todas las secciones protegidas.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Colaboradores
+
+- Sebastián Areco (sebareco)
+- Helipagos (acceso colaborador habilitado)
